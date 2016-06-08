@@ -73,6 +73,7 @@ export default class MaterialArray extends ArrayComponent {
   }
 
   renderAddButton() {
+    if (!this.props.showAddButton) return;
     if (this.props.disabled) return;
     if (this.props.useSmallSpace) return this.renderSmallAddButton();
     return <RaisedButton label={this.props.addLabel} onTouchTap={() => this.addItem()}/>;
