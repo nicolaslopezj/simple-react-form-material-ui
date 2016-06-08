@@ -17,6 +17,7 @@ const propTypes = {
   parentClassName: React.PropTypes.string,
   childrenClassName: React.PropTypes.string,
   useSmallSpace: React.PropTypes.bool,
+  smallRemoveButtonTooltipPosition: React.PropTypes.string,
 };
 
 const defaultProps = {
@@ -24,6 +25,7 @@ const defaultProps = {
   childrenClassName: '',
   parentClassName: '',
   useSmallSpace: false,
+  smallRemoveButtonTooltipPosition: 'bottom-center'
 };
 
 export default class MaterialArray extends ArrayComponent {
@@ -66,6 +68,7 @@ export default class MaterialArray extends ArrayComponent {
         iconClassName="material-icons"
         onTouchTap={() => this.removeItem(index)}
         tooltip={this.props.removeLabel}
+        tooltipPosition={this.props.smallRemoveButtonTooltipPosition}
         >
         clear
       </IconButton>
