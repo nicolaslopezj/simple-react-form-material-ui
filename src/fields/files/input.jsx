@@ -19,6 +19,7 @@ const propTypes = {
    * onError input is message.
    */
   upload: React.PropTypes.func.isRequired,
+
   /**
    * A function that recieves { file, onReady, onError }.
    * file is the information of the file (includes the meta from before).
@@ -26,10 +27,12 @@ const propTypes = {
    * onError input is message.
    */
   delete: React.PropTypes.func,
+
   /**
    * Only accept images
    */
   image: React.PropTypes.bool,
+
   /**
    * Accept multiple files. If you are using simple-schema and this is true,
    * you must set [Object] to the type.
@@ -40,6 +43,11 @@ const propTypes = {
    * Pass the styles props to the preview
    */
   previewStyles: React.PropTypes.object,
+
+  /**
+   * This delete the files that are not used
+   */
+  deleteNotUsedFiles: React.PropTypes.bool,
 };
 
 const defaultProps = {
@@ -80,6 +88,16 @@ export default class Component extends FieldType {
 
   componentWillUnmount() {
     if (!this.limbo.length) return;
+    if (this.props.hasOwnProperty('deleteNotUsedFiles')) {
+      if (!this.props.deleteNotUsedFiles) {
+        return;
+      }
+    } else {
+      if (this.props.form.props.hasOwnProperty('onChange')) {
+        return;
+      }
+    }
+
     this.limbo.map((file) => {
       this.props.delete({
         file,
@@ -100,7 +118,6 @@ export default class Component extends FieldType {
     } else {
       this.props.onChange(file);
     }
-
     this.limbo.push(file);
   }
 
