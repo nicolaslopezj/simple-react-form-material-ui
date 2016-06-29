@@ -36,7 +36,7 @@ class MultipleCheckboxComponent extends FieldType {
   }
 
   renderOptions() {
-    var currentVal = this.props.value || [];
+    const currentVal = this.props.value || [];
     return this.props.options.map(option => {
       return (
         <div key={option.value} style={{ marginTop: 10 }}>

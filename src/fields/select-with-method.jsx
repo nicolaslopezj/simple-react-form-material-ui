@@ -244,7 +244,7 @@ class SelectWithMethodComponent extends FieldType {
     }
 
     if (this.state.searchText !== this.refs.input.state.searchText) {
-      console.log('did blur, not equal');
+      //console.log('did blur, not equal');
       this.refs.input.setState({ searchText: this.state.searchText });
     }
   }
