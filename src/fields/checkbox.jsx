@@ -1,20 +1,19 @@
-import React from 'react';
-import Checkbox from 'material-ui/Checkbox';
-import FontIcon from 'material-ui/FontIcon';
-import * as Colors from 'material-ui/styles/colors';
-import {FieldType, registerType} from 'simple-react-form';
+import React from 'react'
+import Checkbox from 'material-ui/Checkbox'
+import * as Colors from 'material-ui/styles/colors'
+import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
 
-};
+}
 
 const defaultProps = {
 
-};
+}
 
 class CheckboxComponent extends FieldType {
 
-  render() {
+  render () {
     return (
       <div style={{ paddingTop: 10, paddingBottom: 10 }}>
         <Checkbox
@@ -26,21 +25,21 @@ class CheckboxComponent extends FieldType {
         />
         <span style={{ color: Colors.red500 }}>{this.props.errorMessage}</span>
       </div>
-    );
+    )
   }
 }
 
-CheckboxComponent.propTypes = propTypes;
-CheckboxComponent.defaultProps = defaultProps;
+CheckboxComponent.propTypes = propTypes
+CheckboxComponent.defaultProps = defaultProps
 
 registerType({
   type: 'checkbox',
   component: CheckboxComponent,
   allowedTypes: [Boolean],
-  description: 'Simple checkbox field.',
-});
+  description: 'Simple checkbox field.'
+})
 
 registerType({
   type: 'boolean',
-  component: CheckboxComponent,
-});
+  component: CheckboxComponent
+})
