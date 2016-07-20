@@ -14,17 +14,23 @@ List of the components
 
 ### [Checkbox](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/checkbox.jsx)
 
+Name: ```checkbox```
+
 Type: ```Boolean```
 
 ### [Date Picker](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/date-picker.jsx)
 
 Renders the [material-ui date picker](http://www.material-ui.com/#/components/date-picker)
 
+Name: ```date-picker```
+
 Type: ```Date```
 
 ### [Multiple Checkbox](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/multiple-checkbox.jsx)
 
 Select multiple items from a array
+
+Name: ```multiple-checkbox```
 
 Type: ```[String|Number]```
 
@@ -38,6 +44,8 @@ Props:
 
 Select one item from a array
 
+Name: ```radio```
+
 Type: ```String|Number```
 
 Props:
@@ -49,6 +57,8 @@ Props:
 ### [Select With Method](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/select-with-method.jsx)
 
 A text field that searchs items with meteor methods
+
+Name: ```select-with-method```
 
 Type: ```String|Number```
 
@@ -76,6 +86,8 @@ Props:
 
 Select one item from a array in a select field
 
+Name: ```select```
+
 Type: ```String|Number```
 
 Props:
@@ -87,9 +99,13 @@ Props:
 
 Create a array of Strings.
 
+Name: ```tags```
+
 Type: ```[String]```
 
 ### [Text](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/text-field.jsx)
+
+Name: ```text```
 
 Type: ```String```
 
@@ -100,8 +116,12 @@ Props:
 
 A String with multiple lunes
 
+Name: ```textarea```
+
 Type: ```String```
 
 ### [Toggle](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/toggle.jsx)
+
+Name: ```toggle```
 
 Type: ```Boolean```
