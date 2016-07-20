@@ -48,7 +48,29 @@ Props:
 
 ### [Select With Method](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/select-with-method.jsx)
 
+A text field that searchs items with meteor methods
+
 Type: ```String|Number```
+
+Props:
+- ```multi``` ```Boolean``` Optional: Allow to select multiple items.
+- ```methodName``` ```String```: Meteor method that recieves the search string and returns an array of
+  - ```label``` ```String```: The visible text.
+  - ```value``` ```String|Number```: The value.
+  - ```color``` ```String``` Optional: The background color of the chip
+  - ```image``` ```String``` Optional: The url of the image
+  - ```initals``` ```String``` Optional: The initals of the chip. Don't provide this if image is present.
+- ```labelMethodName``` ```String```: Meteor method that recieves the value and must return the item description. If ```multi``` is set to true, this will recieve an array of the values and must return an array with the items descriptions in the same order. Item description is the same as the one returned in ```methodName```:
+  - ```label``` ```String```: The visible text.
+  - ```value``` ```String|Number```: The value.
+  - ```color``` ```String``` Optional: The background color of the chip
+  - ```image``` ```String``` Optional: The url of the image
+  - ```initals``` ```String``` Optional: The initals of the chip. Don't provide this if image is present.
+- ```connection``` Optional, defaults to ```Meteor```: A Meteor connection.
+- ```waitTime``` Optional, defaults to ```400```: Time with no changes that activates the search.
+- ```create``` ```Function``` Optional: A function that creates a document and pass the value in a callback.
+- ```createLabel``` ```Function``` Optional: A function that recieves the search input and returns the create label.
+- ```canCreate``` ```Function``` Optional, defaults to ```() => true```: A function that recieves the search input and returns a ```Boolean``` indicating if ```create``` can be called.
 
 ### [Select](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/select.jsx)
 
