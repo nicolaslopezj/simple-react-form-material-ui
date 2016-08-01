@@ -1,14 +1,14 @@
-import './fields/array';
-import './fields/object';
+export { default as Array } from './array'
+export { default as Object } from './object'
 
-import './fields/checkbox';
-import './fields/radio';
-import './fields/date-picker';
-import './fields/multiple-checkbox';
-import './fields/select-with-method';
-import './fields/select';
-import './fields/tags';
-import './fields/text-field';
-import './fields/textarea';
-import './fields/files/input';
-import './fields/toggle';
+export { default as Checkbox } from './checkbox'
+export { default as Radio } from './radio'
+export { default as DatePicker } from './date-picker'
+export { default as MultipleCheckbox } from './multiple-checkbox'
+export { default as SelectWithMethod } from './select-with-method'
+export { default as Select } from './select'
+export { default as Tags } from './tags'
+export { default as TextField } from './text'
+export { default as Textarea } from './textarea'
+export { default as File } from './file'
+export { default as Toggle } from './toggle'

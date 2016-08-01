@@ -11,7 +11,7 @@ const defaultProps = {
 
 }
 
-class CheckboxComponent extends FieldType {
+export default class CheckboxComponent extends FieldType {
 
   render () {
     return (
@@ -34,9 +34,7 @@ CheckboxComponent.defaultProps = defaultProps
 
 registerType({
   type: 'checkbox',
-  component: CheckboxComponent,
-  allowedTypes: [Boolean],
-  description: 'Simple checkbox field.'
+  component: CheckboxComponent
 })
 
 registerType({

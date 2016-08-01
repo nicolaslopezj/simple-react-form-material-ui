@@ -2,10 +2,13 @@
 
 [Simple React Form](https://github.com/nicolaslopezj/simple-react-form) is a powerful framework that simplifies the use of forms in React. This is a set of components that use Material UI.
 
-To use this fields, import this package once at startup
+To use this fields, import the field and pass it as ```type``` to the ```Field``` component.
 
 ```js
-import 'simple-react-form-material-ui'
+<Form state={this.state} onChange={changes => this.setState(changes)}>
+  <Field fieldName='name' label='Name' type={Text}/>
+  <Field fieldName='date' label='A Date' type={DatePicker}/>
+</Form>
 ```
 
 ## Components
@@ -14,7 +17,9 @@ List of the components
 
 ### [Checkbox](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/checkbox.jsx)
 
-Name: ```checkbox```
+```js
+import Checkbox from 'simple-react-form-material-ui/lib/checkbox'
+```
 
 Type: ```Boolean```
 
@@ -22,7 +27,9 @@ Type: ```Boolean```
 
 Renders the [material-ui date picker](http://www.material-ui.com/#/components/date-picker)
 
-Name: ```date-picker```
+```js
+import DatePicker from 'simple-react-form-material-ui/lib/date-picker'
+```
 
 Type: ```Date```
 
@@ -30,7 +37,9 @@ Type: ```Date```
 
 Select multiple items from a array
 
-Name: ```multiple-checkbox```
+```js
+import MultipleCheckbox from 'simple-react-form-material-ui/lib/multiple-checkbox'
+```
 
 Type: ```[String|Number]```
 
@@ -44,7 +53,9 @@ Props:
 
 Select one item from a array
 
-Name: ```radio```
+```js
+import Radio from 'simple-react-form-material-ui/lib/radio'
+```
 
 Type: ```String|Number```
 
@@ -58,7 +69,9 @@ Props:
 
 A text field that searchs items with meteor methods
 
-Name: ```select-with-method```
+```js
+import SelectWithMethod from 'simple-react-form-material-ui/lib/select-with-method'
+```
 
 Type: ```String|Number```
 
@@ -86,7 +99,9 @@ Props:
 
 Select one item from a array in a select field
 
-Name: ```select```
+```js
+import Select from 'simple-react-form-material-ui/lib/select'
+```
 
 Type: ```String|Number```
 
@@ -99,13 +114,17 @@ Props:
 
 Create a array of Strings.
 
-Name: ```tags```
+```js
+import Tags from 'simple-react-form-material-ui/lib/tags'
+```
 
 Type: ```[String]```
 
 ### [Text](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/text-field.jsx)
 
-Name: ```text```
+```js
+import Text from 'simple-react-form-material-ui/lib/text'
+```
 
 Type: ```String```
 
@@ -116,7 +135,9 @@ Props:
 
 A String with multiple lunes
 
-Name: ```textarea```
+```js
+import Textarea from 'simple-react-form-material-ui/lib/textarea'
+```
 
 Type: ```String```
 

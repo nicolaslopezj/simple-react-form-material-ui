@@ -54,7 +54,7 @@ const defaultProps = {
   canCreate: () => true
 }
 
-class SelectWithMethodComponent extends FieldType {
+export default class SelectWithMethodComponent extends FieldType {
 
   constructor (props) {
     super(props)

@@ -10,7 +10,7 @@ const defaultProps = {
 
 }
 
-class DatePickerComponent extends FieldType {
+export default class DatePickerComponent extends FieldType {
 
   openDialog () {
     if (this.props.disabled) return
@@ -40,7 +40,5 @@ DatePickerComponent.defaultProps = defaultProps
 
 registerType({
   type: 'date-picker',
-  component: DatePickerComponent,
-  allowedTypes: [Date],
-  description: 'Material UI Date picker.'
+  component: DatePickerComponent
 })

@@ -1,25 +1,24 @@
-import React from 'react';
-import * as Colors from 'material-ui/styles/colors';
+import * as Colors from 'material-ui/styles/colors'
 
 export default {
   label: {
     color: 'rgba(0,0,0,0.5)',
     marginBottom: 5,
-    fontSize: 12,
+    fontSize: 12
   },
   mirrorLabel: {
     color: 'rgba(0,0,0,0.5)',
     marginBottom: -6,
-    fontSize: 12,
+    fontSize: 12
   },
   errorMessage: {
     fontSize: 12,
     marginTop: 10,
-    color: Colors.red500,
+    color: Colors.red500
   },
   fieldContainer: {
     paddingTop: 10,
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   tag: {
     background: Colors.grey300,
@@ -29,6 +28,6 @@ export default {
     marginRight: 5,
     marginTop: 3,
     marginBottom: 2,
-    cursor: 'pointer',
-  },
-};
+    cursor: 'pointer'
+  }
+}

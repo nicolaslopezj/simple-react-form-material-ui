@@ -2,7 +2,7 @@ import React from 'react'
 import RadioButton from 'material-ui/RadioButton'
 import * as Colors from 'material-ui/styles/colors'
 import {FieldType, registerType} from 'simple-react-form'
-import styles from '../styles'
+import styles from './styles'
 
 const propTypes = {
   /**
@@ -22,7 +22,7 @@ const defaultProps = {
 
 }
 
-class RadioComponent extends FieldType {
+export default class RadioComponent extends FieldType {
 
   renderItems () {
     return this.props.options.map((item) => {
