@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/nicolaslopezj/simple-react-form/tree/master/material-ui"
   },
+  "keywords": [
+    "react-component"
+  ],
   "devDependencies": {
     "babel-cli": "6.5.1",
     "babel-eslint": "^5.0.0",
