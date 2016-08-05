@@ -1,6 +1,6 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
-import { Form, ObjectComponent } from 'simple-react-form'
+import {ObjectComponent} from 'simple-react-form'
 
 const styles = {
   label: {
@@ -15,13 +15,11 @@ export default class MaterialObject extends ObjectComponent {
   render () {
     return (
       <Paper style={{ marginTop: 20, marginBottom: 20, padding: 20 }}>
-        <div style={styles.label}>{this.getLabel()}</div>
-        <div style={{ color: 'red' }}>{this.getErrorMessage()}</div>
-        {this.props.children}
+        <div style={styles.label}>{this.props.label}</div>
+        <div style={{ color: 'red' }}>{this.props.errorMessage}</div>
+        {this.getChildrenComponents()}
       </Paper>
     )
   }
 
 }
-
-Form.defaultProps.objectComponent = MaterialObject

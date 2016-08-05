@@ -1,3 +1,4 @@
+import {registerType} from 'simple-react-form'
 export { default as Array } from './array'
 export { default as Object } from './object'
 
@@ -12,3 +13,13 @@ export { default as TextField } from './text'
 export { default as Textarea } from './textarea'
 export { default as File } from './file'
 export { default as Toggle } from './toggle'
+
+registerType({
+  type: 'array',
+  component: Array
+})
+
+registerType({
+  type: 'object',
+  component: Object
+})

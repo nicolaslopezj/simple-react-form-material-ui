@@ -143,6 +143,46 @@ Type: ```String```
 
 ### [Toggle](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/toggle.jsx)
 
-Name: ```toggle```
+```js
+import Toggle from 'simple-react-form-material-ui/lib/toggle'
+```
 
 Type: ```Boolean```
+
+### [Object](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/object.jsx)
+
+```js
+import ObjectComponent from 'simple-react-form-material-ui/lib/object'
+```
+
+Type: ```Object```
+
+Usage:
+
+```js
+<Form>
+  <Field fieldName='myObject' type={ObjectComponent}>
+    <Field fieldName='myField' type={Text}/>
+    <Field fieldName='myField2' type={Text}/>
+  </Field>
+</Form>
+```
+
+### [Array](https://github.com/nicolaslopezj/simple-react-form-material-ui/blob/master/src/fields/array.jsx)
+
+```js
+import ArrayComponent from 'simple-react-form-material-ui/lib/array'
+```
+
+Type: ```Array```
+
+Usage:
+
+```js
+<Form>
+  <Field fieldName='myArray' type={ArrayComponent}>
+    <Field fieldName='myField' type={Text}/>
+    <Field fieldName='myField2' type={Text}/>
+  </Field>
+</Form>
+```

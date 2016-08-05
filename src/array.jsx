@@ -2,7 +2,7 @@ import React from 'react'
 import Paper from 'material-ui/Paper'
 import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import { Form, ArrayComponent } from 'simple-react-form'
+import {ArrayComponent} from 'simple-react-form'
 
 const styles = {
   label: {
@@ -100,8 +100,8 @@ export default class MaterialArray extends ArrayComponent {
   render () {
     return (
       <div style={{ marginTop: 20 }}>
-        <div style={styles.label}>{this.getLabel()}</div>
-        <div style={{ color: 'red' }}>{this.getErrorMessage()}</div>
+        <div style={styles.label}>{this.props.label}</div>
+        <div style={{ color: 'red' }}>{this.props.errorMessage}</div>
         <div className={this.props.parentClassName}>
           {this.renderChildren()}
         </div>
@@ -115,4 +115,3 @@ export default class MaterialArray extends ArrayComponent {
 
 MaterialArray.propTypes = propTypes
 MaterialArray.defaultProps = defaultProps
-Form.defaultProps.arrayComponent = MaterialArray
