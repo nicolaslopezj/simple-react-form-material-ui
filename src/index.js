@@ -1,6 +1,6 @@
 import {registerType} from 'simple-react-form'
-export { default as Array } from './array'
-export { default as Object } from './object'
+import ArrayField from './array'
+import ObjectField from './object'
 
 export { default as Checkbox } from './checkbox'
 export { default as Radio } from './radio'
@@ -16,10 +16,13 @@ export { default as Toggle } from './toggle'
 
 registerType({
   type: 'array',
-  component: Array
+  component: ArrayField
 })
 
 registerType({
   type: 'object',
-  component: Object
+  component: ObjectField
 })
+
+export const ArrayComponent = ArrayField
+export const ObjectComponent = ObjectField
