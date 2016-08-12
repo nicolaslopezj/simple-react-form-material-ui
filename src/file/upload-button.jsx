@@ -5,7 +5,7 @@ import _ from 'underscore'
 
 const propTypes = {
   accept: React.PropTypes.string,
-  label: React.PropTypes.string,
+  label: React.PropTypes.any,
   multi: React.PropTypes.bool,
   onUpload: React.PropTypes.func.isRequired,
   passBase64: React.PropTypes.bool

@@ -35,15 +35,15 @@ const propTypes = {
   isUploading: React.PropTypes.bool,
   progress: React.PropTypes.number,
   onDelete: React.PropTypes.func,
-  deleteLabel: React.PropTypes.string,
-  confirmDeleteText: React.PropTypes.string,
+  deleteLabel: React.PropTypes.any,
+  confirmDeleteText: React.PropTypes.any,
   styles: React.PropTypes.object.isRequired
 }
 
 export default class FilesPreview extends React.Component {
 
   askDelete () {
-    if (confirm(this.props.confirmDeleteText)) {
+    if (confirm(this.props.confirmDeleteText)) { // we should use a react component hereº
       this.props.onDelete()
     }
   }

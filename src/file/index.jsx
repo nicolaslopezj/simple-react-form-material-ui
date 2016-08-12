@@ -43,13 +43,30 @@ const propTypes = {
   /**
    * This delete the files that are not used
    */
-  deleteNotUsedFiles: React.PropTypes.bool
+  deleteNotUsedFiles: React.PropTypes.bool,
+
+  /**
+   * The label of the button
+   */
+  uploadLabel: React.PropTypes.any,
+
+  /**
+   * The label of the delete button
+   */
+  deleteLabel: React.PropTypes.any,
+
+  /**
+   * The text that is shown when deleting
+   */
+  confirmDeleteText: React.PropTypes.any
 }
 
 const defaultProps = {
   image: false,
   multi: false,
   previewStyles: {},
+  deleteLabel: 'Delete',
+  confirmDeleteText: 'Do you want to delete this file?',
   delete: ({ file, onReady, onError }) => onReady()
 }
 
@@ -80,6 +97,10 @@ export default class Component extends FieldType {
     })
     this.toDelete = []
     this.limbo = []
+  }
+
+  onError (message) {
+    // Todo something here
   }
 
   componentWillUnmount () {
@@ -182,8 +203,8 @@ export default class Component extends FieldType {
         styles={this.props.previewStyles}
         url={file.url}
         isImage={!!this.props.image}
-        deleteLabel='Delete'
-        confirmDeleteText='Do you want to delete this file?'
+        deleteLabel={this.props.deleteLabel}
+        confirmDeleteText={this.props.confirmDeleteText}
         onDelete={() => this.deleteFile(file)}
         />
     })
@@ -200,7 +221,7 @@ export default class Component extends FieldType {
     if (!this.props.multi && (this.props.value || this.uploads.length)) return
     const props = {
       accept: this.props.image ? 'image/*' : '',
-      label: this.props.image ? 'Upload image' : 'Upload file',
+      label: this.props.image ? this.props.uploadLabel || 'Upload image' : this.props.uploadLabel || 'Upload file',
       multi: !!this.props.multi,
       onUpload: this.startUpload.bind(this),
       passBase64: !!this.props.image
