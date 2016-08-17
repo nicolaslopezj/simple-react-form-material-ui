@@ -24,7 +24,7 @@
     "budo": "^8.0.3",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.16.1",
-    "material-ui": ">=0.15.0",
+    "material-ui": ">=0.15.2",
     "node-sass": "^3.4.2",
     "react": ">=0.14.0",
     "react-addons-test-utils": "^0.14.7",

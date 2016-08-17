@@ -56,13 +56,13 @@ export default class SelectComponent extends FieldType {
   render () {
     return (
       <SelectField
-        value={String(this.props.value)}
-        onChange={this.onChange.bind(this)}
-        fullWidth
-        disabled={this.props.disabled}
-        floatingLabelText={this.props.label}
-        errorText={this.props.errorMessage}
-        {...this.passProps}>
+      value={String(this.props.value)}
+      onChange={this.onChange.bind(this)}
+      fullWidth
+      disabled={this.props.disabled}
+      floatingLabelText={this.props.label}
+      errorText={this.props.errorMessage}
+      {...this.passProps}>
         {this.renderItems()}
       </SelectField>
     )

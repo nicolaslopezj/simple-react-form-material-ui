@@ -109,7 +109,7 @@ export default class SelectWithMethodComponent extends FieldType {
 
     if (missingLabels.length > 0) {
       var labelMethodName = this.props.labelMethodName
-      var connection = this.props.connection || Meteor
+      var connection = this.props.connection || global.Meteor
       var labelsMethod = this.props.multi ? missingLabels : missingLabels[0]
       this.setState({isFetchingLabel: true})
       connection.call(labelMethodName, labelsMethod, (error, response) => {
@@ -165,7 +165,7 @@ export default class SelectWithMethodComponent extends FieldType {
     }
 
     var methodName = this.props.methodName
-    var connection = this.props.connection || Meteor
+    var connection = this.props.connection || global.Meteor
     connection.call(methodName, text, (error, response) => {
       this.setState({isFetchingData: false})
       if (error) {
