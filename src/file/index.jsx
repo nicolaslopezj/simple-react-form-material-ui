@@ -79,9 +79,9 @@ export default class Component extends FieldType {
     this.toDelete = []
     this.limbo = []
 
-    $(window).unload(() => {
+    /* $(window).unload(() => { This will be deactivated until better implementation is made
       this.componentWillUnmount()
-    })
+    }) */
   }
 
   onSuccess () {
