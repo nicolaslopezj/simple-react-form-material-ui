@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
+  ...FieldType.propTypes,
   changeOnKeyDown: React.PropTypes.bool,
   fieldType: React.PropTypes.string
 }
@@ -11,7 +12,7 @@ const defaultProps = {
   changeOnKeyDown: true
 }
 
-export default class TextFieldComponent extends FieldType {
+export default class TextFieldComponent extends React.Component {
 
   constructor (props) {
     super(props)

@@ -5,6 +5,7 @@ import {FieldType, registerType} from 'simple-react-form'
 import styles from './styles'
 
 const propTypes = {
+  ...FieldType.propTypes,
   /**
    * The options for the select input. Each item must have label and value.
    */
@@ -22,7 +23,7 @@ const defaultProps = {
 
 }
 
-export default class RadioComponent extends FieldType {
+export default class RadioComponent extends React.Component {
 
   renderItems () {
     return this.props.options.map((item) => {

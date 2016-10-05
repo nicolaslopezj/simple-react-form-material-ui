@@ -3,14 +3,14 @@ import TextField from 'material-ui/TextField'
 import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
-
+  ...FieldType.propTypes
 }
 
 const defaultProps = {
 
 }
 
-export default class TextareaComponent extends FieldType {
+export default class TextareaComponent extends React.Component {
   render () {
     return (
       <TextField

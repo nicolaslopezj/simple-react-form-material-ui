@@ -4,14 +4,14 @@ import {FieldType, registerType} from 'simple-react-form'
 import styles from './styles'
 
 const propTypes = {
-
+  ...FieldType.propTypes
 }
 
 const defaultProps = {
 
 }
 
-export default class ToggleComponent extends FieldType {
+export default class ToggleComponent extends React.Component {
 
   render () {
     return (

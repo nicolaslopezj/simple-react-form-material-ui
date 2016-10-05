@@ -1,6 +1,6 @@
 {
   "name": "simple-react-form-material-ui",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "license": "MIT",
   "author": "Nicolás López <nicolaslopezj@me.com>",
   "description": "Material UI components for simple react form",
@@ -37,7 +37,7 @@
   },
   "peerDependencies": {
     "react": ">=15.0.0",
-    "simple-react-form": ">=1.6.0",
+    "simple-react-form": ">=1.7.0",
     "material-ui": ">=0.15.2",
     "react-tap-event-plugin": ">=1.0.0"
   },

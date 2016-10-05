@@ -7,6 +7,7 @@ import Preview from './preview'
 import styles from '../styles'
 
 const propTypes = {
+  ...FieldType.propTypes,
   /**
    * A function that recieves { file, onProgress, onReady, onError }.
    * onProgress input is progress, a number from 0 to 1.
@@ -70,7 +71,7 @@ const defaultProps = {
   delete: ({ file, onReady, onError }) => onReady()
 }
 
-export default class Component extends FieldType {
+export default class Component extends React.Component {
 
   constructor (props) {
     super(props)

@@ -4,14 +4,14 @@ import * as Colors from 'material-ui/styles/colors'
 import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
-
+  ...FieldType.propTypes
 }
 
 const defaultProps = {
 
 }
 
-export default class CheckboxComponent extends FieldType {
+export default class CheckboxComponent extends React.Component {
 
   render () {
     return (

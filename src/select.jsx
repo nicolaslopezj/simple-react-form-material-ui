@@ -5,6 +5,7 @@ import {FieldType, registerType} from 'simple-react-form'
 import _ from 'underscore'
 
 const propTypes = {
+  ...FieldType.propTypes,
   /**
    * The options for the select input. Each item must have label and value.
    */
@@ -20,7 +21,7 @@ const propTypes = {
 const defaultProps = {
 }
 
-export default class SelectComponent extends FieldType {
+export default class SelectComponent extends React.Component {
 
   onChange (event, index, value) {
     const options = this.getOptions()

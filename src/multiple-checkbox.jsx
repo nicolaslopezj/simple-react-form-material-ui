@@ -6,6 +6,7 @@ import styles from './styles'
 import _ from 'underscore'
 
 const propTypes = {
+  ...FieldType.propTypes,
   /**
    * The options for the checkbox.
    */
@@ -23,7 +24,7 @@ const defaultProps = {
 
 }
 
-export default class MultipleCheckboxComponent extends FieldType {
+export default class MultipleCheckboxComponent extends React.Component {
 
   onCheck (value, currentVal) {
     var newVal = []

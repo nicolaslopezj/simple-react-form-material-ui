@@ -10,6 +10,7 @@ import Avatar from 'material-ui/Avatar'
 import FontIcon from 'material-ui/FontIcon'
 
 const propTypes = {
+  ...FieldType.propTypes,
   /**
    * Allow to select multiple items.
    */
@@ -54,7 +55,7 @@ const defaultProps = {
   canCreate: () => true
 }
 
-export default class SelectWithMethodComponent extends FieldType {
+export default class SelectWithMethodComponent extends React.Component {
 
   constructor (props) {
     super(props)

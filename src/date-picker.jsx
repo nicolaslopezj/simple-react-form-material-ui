@@ -3,14 +3,14 @@ import DatePicker from 'material-ui/DatePicker'
 import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
-
+  ...FieldType.propTypes
 }
 
 const defaultProps = {
 
 }
 
-export default class DatePickerComponent extends FieldType {
+export default class DatePickerComponent extends React.Component {
 
   openDialog () {
     if (this.props.disabled) return

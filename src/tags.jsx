@@ -5,14 +5,14 @@ import styles from './styles'
 import _ from 'underscore'
 
 const propTypes = {
-
+  ...FieldType.propTypes
 }
 
 const defaultProps = {
 
 }
 
-export default class StringArrayComponent extends FieldType {
+export default class StringArrayComponent extends React.Component {
 
   constructor (props) {
     super(props)
