@@ -62,7 +62,7 @@ export default class StringArrayComponent extends React.Component {
           onChange={(event) => this.setState({ value: event.target.value })}
           onKeyDown={this.onKeyDown.bind(this)}
           onBlur={this.addItem.bind(this)}
-          {...this.passProps} />
+          {...this.props.passProps} />
         {this.renderItems()}
       </div>
     )

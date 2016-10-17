@@ -47,7 +47,7 @@ export default class MultipleCheckboxComponent extends React.Component {
           onCheck={() => this.onCheck(option.value, currentVal)}
           label={option.label}
           disabled={this.props.disabled}
-          {...this.passProps}
+          {...this.props.passProps}
           />
           <div
           style={{ marginLeft: 40, color: Colors.grey500, cursor: 'pointer' }}

@@ -29,7 +29,7 @@ export default class DatePickerComponent extends React.Component {
         errorText={this.props.errorMessage}
         disabled={this.props.disabled}
         onChange={(_, date) => this.props.onChange(date)}
-        {...this.passProps} />
+        {...this.props.passProps} />
       </div>
     )
   }

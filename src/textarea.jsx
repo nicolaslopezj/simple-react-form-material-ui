@@ -23,7 +23,7 @@ export default class TextareaComponent extends React.Component {
         errorText={this.props.errorMessage}
         disabled={this.props.disabled}
         onChange={(event) => this.props.onChange(event.target.value)}
-        {...this.passProps} />
+        {...this.props.passProps} />
     )
   }
 }

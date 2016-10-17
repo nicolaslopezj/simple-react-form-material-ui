@@ -63,7 +63,7 @@ export default class SelectComponent extends React.Component {
       disabled={this.props.disabled}
       floatingLabelText={this.props.label}
       errorText={this.props.errorMessage}
-      {...this.passProps}>
+      {...this.props.passProps}>
         {this.renderItems()}
       </SelectField>
     )

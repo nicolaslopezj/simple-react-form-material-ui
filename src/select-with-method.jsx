@@ -320,7 +320,7 @@ export default class SelectWithMethodComponent extends React.Component {
         openOnFocus
         disabled={this.props.disabled}
         menuCloseDelay={100}
-        {...this.passProps} />
+        {...this.props.passProps} />
         {this.renderLoading()}
         <div>
           {this.renderItems()}

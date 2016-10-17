@@ -55,7 +55,7 @@ export default class TextFieldComponent extends React.Component {
       onChange={this.onChange.bind(this)}
       onKeyDown={this.onKeyDown.bind(this)}
       onBlur={this.onBlur.bind(this)}
-      {...this.passProps} />
+      {...this.props.passProps} />
     )
   }
 }
