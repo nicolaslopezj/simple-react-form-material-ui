@@ -21,7 +21,7 @@ export default class ToggleComponent extends React.Component {
           defaultToggled={!!this.props.value}
           disabled={this.props.disabled}
           onToggle={() => this.props.onChange(!this.props.value)}
-          {...this.passProps}/>
+          {...this.props.passProps}/>
         <div style={styles.errorMessage}>{this.props.errorMessage}</div>
       </div>
     )

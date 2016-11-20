@@ -278,11 +278,11 @@ export default class SelectWithMethodComponent extends React.Component {
       }
       return (
         <Chip
-        onRequestDelete={() => this.removeItem(value)}
-        key={value}
-        labelColor={textColor}
-        style={{marginBottom: 3}}
-        backgroundColor={color}>
+          onRequestDelete={() => this.removeItem(value)}
+          key={value}
+          labelColor={textColor}
+          style={{marginBottom: 3}}
+          backgroundColor={color}>
           {avatar}
           {label}
         </Chip>
@@ -292,35 +292,36 @@ export default class SelectWithMethodComponent extends React.Component {
 
   renderLoading () {
     if (!this.isLoading()) return
+    return
 
-    return (
+    /* return (
       <CircularProgress
-      style={{float: 'right', marginTop: -55, marginRight: -6}}
-      size={0.4}/>
-    )
+        style={{float: 'right', marginTop: -55, marginRight: -6}}
+        size={0.4} />
+    ) */
   }
 
   render () {
     return (
       <div>
         <AutoComplete
-        ref='input'
-        fullWidth
-        searchText=''
-        dataSource={this.state.dataSource}
-        filter={AutoComplete.noFilter}
-        onUpdateInput={this.onUpdateText.bind(this)}
-        floatingLabelText={this.props.useHint ? null : this.props.label}
-        hintText={this.props.useHint ? this.props.label : null}
-        onNewRequest={this.onItemSelected.bind(this)}
-        errorText={this.props.errorMessage}
-        onFocus={this.onFocus.bind(this)}
-        onBlur={this.onBlur.bind(this)}
-        open={this.state.open}
-        openOnFocus
-        disabled={this.props.disabled}
-        menuCloseDelay={100}
-        {...this.props.passProps} />
+          ref='input'
+          fullWidth
+          searchText=''
+          dataSource={this.state.dataSource}
+          filter={AutoComplete.noFilter}
+          onUpdateInput={this.onUpdateText.bind(this)}
+          floatingLabelText={this.props.useHint ? null : this.props.label}
+          hintText={this.props.useHint ? this.props.label : null}
+          onNewRequest={this.onItemSelected.bind(this)}
+          errorText={this.props.errorMessage}
+          onFocus={this.onFocus.bind(this)}
+          onBlur={this.onBlur.bind(this)}
+          open={this.state.open}
+          openOnFocus
+          disabled={this.props.disabled}
+          menuCloseDelay={100}
+          {...this.props.passProps} />
         {this.renderLoading()}
         <div>
           {this.renderItems()}
