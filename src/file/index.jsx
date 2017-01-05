@@ -12,7 +12,7 @@ const propTypes = {
    * A function that recieves { file, onProgress, onReady, onError }.
    * onProgress input is progress, a number from 0 to 1.
    * onReady inputs are { url, meta },
-   * 		url is the url of the file, meta is a object with whatever you want.
+   *    url is the url of the file, meta is a object with whatever you want.
    * onError input is message.
    */
   upload: React.PropTypes.func.isRequired,
@@ -24,7 +24,7 @@ const propTypes = {
    * onError input is message.
    */
   delete: React.PropTypes.func,
-  
+
   /**
    * A mime type to match to accept the files.
    * If image prop is set and image prop is also set, this mime type is going to stay.

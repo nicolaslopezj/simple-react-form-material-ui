@@ -44,18 +44,18 @@ export default class TextFieldComponent extends React.Component {
     var fieldType = this.props.fieldType || this.type || 'text'
     return (
       <TextField
-      ref='input'
-      fullWidth
-      value={this.state.value || ''}
-      type={fieldType}
-      floatingLabelText={this.props.useHint ? null : this.props.label}
-      hintText={this.props.useHint ? this.props.label : null}
-      errorText={this.props.errorMessage}
-      disabled={this.props.disabled}
-      onChange={this.onChange.bind(this)}
-      onKeyDown={this.onKeyDown.bind(this)}
-      onBlur={this.onBlur.bind(this)}
-      {...this.props.passProps} />
+        ref='input'
+        fullWidth
+        value={this.state.value || ''}
+        type={fieldType}
+        floatingLabelText={this.props.useHint ? null : this.props.label}
+        hintText={this.props.useHint ? this.props.label : null}
+        errorText={this.props.errorMessage}
+        disabled={this.props.disabled}
+        onChange={this.onChange.bind(this)}
+        onKeyDown={this.onKeyDown.bind(this)}
+        onBlur={this.onBlur.bind(this)}
+        {...this.props.passProps} />
     )
   }
 }
