@@ -24,6 +24,13 @@ const propTypes = {
    * onError input is message.
    */
   delete: React.PropTypes.func,
+  
+  /**
+   * A mime type to match to accept the files.
+   * If image prop is set and image prop is also set, this mime type is going to stay.
+   * If this prop is not set and image prop is, the mime type will be 'image/*'
+   */
+  accept: React.PropTypes.string,
 
   /**
    * Only accept images
@@ -63,6 +70,7 @@ const propTypes = {
 }
 
 const defaultProps = {
+  accept: false,
   image: false,
   multi: false,
   previewStyles: {},
@@ -221,7 +229,7 @@ export default class Component extends React.Component {
   renderUploadButton () {
     if (!this.props.multi && (this.props.value || this.uploads.length)) return
     const props = {
-      accept: this.props.image ? 'image/*' : '',
+      accept: this.props.accept ? this.props.accept : this.props.image ? 'image/*' : '',
       label: this.props.image ? this.props.uploadLabel || 'Upload image' : this.props.uploadLabel || 'Upload file',
       multi: !!this.props.multi,
       onUpload: this.startUpload.bind(this),
