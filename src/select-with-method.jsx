@@ -1,7 +1,6 @@
 import React from 'react'
 import AutoComplete from 'material-ui/AutoComplete'
 import MenuItem from 'material-ui/MenuItem'
-import CircularProgress from 'material-ui/CircularProgress'
 import _ from 'underscore'
 import {FieldType, registerType} from 'simple-react-form'
 import Chip from 'material-ui/Chip'

@@ -12,6 +12,7 @@ const propTypes = {
    */
   options: React.PropTypes.arrayOf(React.PropTypes.shape({
     label: React.PropTypes.string.isRequired,
+    disabled: React.PropTypes.bool,
     value: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.number
@@ -43,15 +44,15 @@ export default class MultipleCheckboxComponent extends React.Component {
       return (
         <div key={option.value} style={{ marginTop: 10 }}>
           <Checkbox
-          checked={_.contains(currentVal, option.value)}
-          onCheck={() => this.onCheck(option.value, currentVal)}
-          label={option.label}
-          disabled={this.props.disabled}
-          {...this.props.passProps}
+            checked={_.contains(currentVal, option.value)}
+            onCheck={() => this.onCheck(option.value, currentVal)}
+            label={option.label}
+            disabled={this.props.disabled || option.disabled}
+            {...this.props.passProps}
           />
           <div
-          style={{ marginLeft: 40, color: Colors.grey500, cursor: 'pointer' }}
-          onClick={() => this.onCheck(option.value, currentVal)}>
+            style={{ marginLeft: 40, color: Colors.grey500, cursor: 'pointer' }}
+            onClick={() => this.onCheck(option.value, currentVal)}>
             {(option.description || '').split('\n').map((text, index) => <div key={index}>{text}</div>)}
           </div>
         </div>
