@@ -1,4 +1,4 @@
-# Materia UI - Simple React Form
+# Material UI - Simple React Form
 
 [Simple React Form](https://github.com/nicolaslopezj/simple-react-form) is a powerful framework that simplifies the use of forms in React and [React Native](https://github.com/nicolaslopezj/simple-react-form#react-native). This is a set of components that use Material UI.
 
