@@ -9,7 +9,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-  changeOnKeyDown: true
+  changeOnKeyDown: false
 }
 
 export default class TextFieldComponent extends React.Component {
@@ -30,32 +30,39 @@ export default class TextFieldComponent extends React.Component {
   }
 
   onBlur (event) {
+    if (this.props.onBlur) {
+      this.props.onBlur()
+    }
     this.props.onChange(this.state.value)
+  }
+  _isNumberType () {
+    return this.props.fieldSchema.type === Number
   }
 
   onChange (event) {
-    this.setState({ value: event.target.value })
+    let value = (this._isNumberType()) ? Number(event.target.value) : event.target.value
+    this.setState({ value })
     if (this.props.changeOnKeyDown) {
-      this.props.onChange(event.target.value)
+      this.props.onChange(value)
     }
   }
 
   render () {
     var fieldType = this.props.fieldType || this.type || 'text'
     return (
-      <TextField
-        ref='input'
-        fullWidth
-        value={this.state.value || ''}
-        type={fieldType}
-        floatingLabelText={this.props.useHint ? null : this.props.label}
-        hintText={this.props.useHint ? this.props.label : null}
-        errorText={this.props.errorMessage}
-        disabled={this.props.disabled}
-        onChange={this.onChange.bind(this)}
-        onKeyDown={this.onKeyDown.bind(this)}
-        onBlur={this.onBlur.bind(this)}
-        {...this.props.passProps} />
+        <TextField
+            ref='input'
+            fullWidth={true}
+            value={this.state.value || ''}
+            type={fieldType}
+            floatingLabelText={this.props.useHint ? null : this.props.label}
+            hintText={this.props.useHint ? this.props.label : null}
+            errorText={this.props.errorMessage}
+            disabled={this.props.disabled}
+            onChange={this.onChange.bind(this)}
+            onKeyDown={this.onKeyDown.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            {...this.props.passProps} />
     )
   }
 }
