@@ -7,6 +7,10 @@ import _ from 'underscore'
 const propTypes = {
   ...FieldType.propTypes,
   /**
+   * Optional default value.
+   */
+  defaultValue: React.PropTypes.string,
+  /**
    * The options for the select input. Each item must have label and value.
    */
   options: React.PropTypes.arrayOf(React.PropTypes.shape({
@@ -22,17 +26,15 @@ const defaultProps = {
 }
 
 export default class SelectComponent extends React.Component {
-
-  onChange (event, index, value) {
-    const options = this.getOptions()
-    options.map(option => {
-      if (String(option.value) === value) {
-        this.props.onChange(option.value)
-      }
+  constructor(props) {
+    super(props)
+    this._options = this._getOptions()
+    this._menuItems = this._options.map((item) => {
+      return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value)=>props.onChange(item.value)}/>
     })
   }
 
-  getOptions () {
+  _getOptions () {
     if (this.props.options) {
       return this.props.options
     } else if (this.props.fieldSchema.allowedValues) {
@@ -46,26 +48,33 @@ export default class SelectComponent extends React.Component {
       throw new Error('You must set the options for the select field')
     }
   }
+  _getDefaultValue () {
+    if (this.props.defaultValue) {
+      return this.props.defaultValue
+    } else if (this.props.fieldSchema.defaultValue) {
+      return this.props.fieldSchema.defaultValue
+    }
+  }
 
-  renderItems () {
-    const options = this.getOptions()
-    return options.map((item) => {
-      return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} />
-    })
+  componentDidMount() {
+    if (!this.props.value) {
+      this.props.onChange(this._getDefaultValue())
+    }
   }
 
   render () {
+
     return (
-      <SelectField
-      value={String(this.props.value)}
-      onChange={this.onChange.bind(this)}
-      fullWidth
-      disabled={this.props.disabled}
-      floatingLabelText={this.props.label}
-      errorText={this.props.errorMessage}
-      {...this.props.passProps}>
-        {this.renderItems()}
-      </SelectField>
+        <SelectField
+            value={String(this.props.value)}
+            defaultValue={this._getDefaultValue()}
+            fullWidth
+            disabled={this.props.disabled}
+            floatingLabelText={this.props.label}
+            errorText={this.props.errorMessage}
+            {...this.props.passProps}>
+          {this._menuItems}
+        </SelectField>
     )
   }
 }
