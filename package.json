@@ -12,6 +12,9 @@
   "keywords": [
     "react-component"
   ],
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
