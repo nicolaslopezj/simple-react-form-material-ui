@@ -39,6 +39,9 @@ export default class TextFieldComponent extends React.Component {
     if (this.props.fieldSchema) {
       return this.props.fieldSchema.type === Number
     }
+    if (this.props.fieldType === 'number') {
+      return true
+    }
     return false
   }
 
