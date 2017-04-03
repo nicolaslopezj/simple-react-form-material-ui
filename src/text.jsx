@@ -36,7 +36,16 @@ export default class TextFieldComponent extends React.Component {
     this.props.onChange(this.state.value)
   }
   _isNumberType () {
-    return this.props.fieldSchema.type === Number
+    if (this.props.fieldSchema) {
+      return this.props.fieldSchema.type === Number
+    }
+    if (this.props.fieldType === 'number') {
+      return true
+    }
+    if (this.type === 'number') {
+      return true
+    }
+    return false
   }
 
   onChange (event) {
@@ -50,19 +59,20 @@ export default class TextFieldComponent extends React.Component {
   render () {
     var fieldType = this.props.fieldType || this.type || 'text'
     return (
-        <TextField
-            ref='input'
-            fullWidth={true}
-            value={this.state.value || ''}
-            type={fieldType}
-            floatingLabelText={this.props.useHint ? null : this.props.label}
-            hintText={this.props.useHint ? this.props.label : null}
-            errorText={this.props.errorMessage}
-            disabled={this.props.disabled}
-            onChange={this.onChange.bind(this)}
-            onKeyDown={this.onKeyDown.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            {...this.props.passProps} />
+      <TextField
+        ref='input'
+        fullWidth
+        value={this.state.value || ''}
+        type={fieldType}
+        floatingLabelText={this.props.useHint ? null : this.props.label}
+        hintText={this.props.useHint ? this.props.label : null}
+        errorText={this.props.errorMessage}
+        disabled={this.props.disabled}
+        onChange={this.onChange.bind(this)}
+        onKeyDown={this.onKeyDown.bind(this)}
+        onBlur={this.onBlur.bind(this)}
+        {...this.props.passProps}
+      />
     )
   }
 }
