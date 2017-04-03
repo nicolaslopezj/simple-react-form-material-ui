@@ -22,19 +22,27 @@ const propTypes = {
   }))
 }
 
-const defaultProps = {
-}
-
 export default class SelectComponent extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-    this._options = this._getOptions()
-    this._menuItems = this._options.map((item) => {
-      return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value)=>props.onChange(item.value)}/>
+    this.options = this.getOptions()
+    this.menuItems = this.options.map((item) => {
+      return <MenuItem
+        key={item.value}
+        value={String(item.value)}
+        primaryText={item.label}
+        onTouchTap={(value) => props.onChange(item.value)}
+      />
     })
   }
 
-  _getOptions () {
+  componentDidMount () {
+    if (!this.props.value) {
+      this.props.onChange(this.getDefaultValue())
+    }
+  }
+
+  getOptions () {
     if (this.props.options) {
       return this.props.options
     } else if (this.props.fieldSchema.allowedValues) {
@@ -48,39 +56,33 @@ export default class SelectComponent extends React.Component {
       throw new Error('You must set the options for the select field')
     }
   }
-  _getDefaultValue () {
+
+  getDefaultValue () {
     if (this.props.defaultValue) {
       return this.props.defaultValue
-    } else if (this.props.fieldSchema.defaultValue) {
+    } else if (this.props.fieldSchema && this.props.fieldSchema.defaultValue) {
       return this.props.fieldSchema.defaultValue
     }
   }
 
-  componentDidMount() {
-    if (!this.props.value) {
-      this.props.onChange(this._getDefaultValue())
-    }
-  }
-
   render () {
-
     return (
-        <SelectField
-            value={String(this.props.value)}
-            defaultValue={this._getDefaultValue()}
-            fullWidth
-            disabled={this.props.disabled}
-            floatingLabelText={this.props.label}
-            errorText={this.props.errorMessage}
-            {...this.props.passProps}>
-          {this._menuItems}
-        </SelectField>
+      <SelectField
+        value={String(this.props.value)}
+        defaultValue={this.getDefaultValue()}
+        fullWidth
+        disabled={this.props.disabled}
+        floatingLabelText={this.props.label}
+        errorText={this.props.errorMessage}
+        {...this.props.passProps}
+      >
+        {this.menuItems}
+      </SelectField>
     )
   }
 }
 
 SelectComponent.propTypes = propTypes
-SelectComponent.defaultProps = defaultProps
 
 registerType({
   type: 'select',
