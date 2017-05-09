@@ -51,7 +51,7 @@ export default class SelectComponent extends React.Component {
   _getDefaultValue () {
     if (this.props.defaultValue) {
       return this.props.defaultValue
-    } else if (this.props.fieldSchema.defaultValue) {
+    } else if (this.props.fieldSchema && this.props.fieldSchema.defaultValue) {
       return this.props.fieldSchema.defaultValue
     }
   }
