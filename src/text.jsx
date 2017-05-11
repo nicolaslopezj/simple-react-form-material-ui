@@ -62,7 +62,7 @@ export default class TextFieldComponent extends React.Component {
       <TextField
         ref='input'
         fullWidth
-        value={this.state.value || ''}
+        value={typeof this.state.value !== "undefined" ? this.state.value : '' }
         type={fieldType}
         floatingLabelText={this.props.useHint ? null : this.props.label}
         hintText={this.props.useHint ? this.props.label : null}
