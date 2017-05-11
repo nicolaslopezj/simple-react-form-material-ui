@@ -1,6 +1,6 @@
 {
   "name": "simple-react-form-material-ui",
-  "version": "1.7.11",
+  "version": "1.7.13",
   "license": "MIT",
   "author": "Nicolás López <nicolaslopezj@me.com>",
   "description": "Material UI components for simple react form",
@@ -25,6 +25,7 @@
     "brfs": "^1.4.3",
     "browserify": "^13.0.0",
     "budo": "^9.4.1",
+    "colors": "^1.1.2",
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
     "material-ui": ">=0.15.2",
@@ -46,6 +47,7 @@
   },
   "scripts": {
     "build": "babel ./src --out-dir ./lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "watch": "node watch.js"
   }
 }
