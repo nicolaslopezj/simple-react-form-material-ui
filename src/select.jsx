@@ -51,7 +51,7 @@ export default class SelectComponent extends React.Component {
   }
 
   componentDidMount () {
-    if (!this.props.value) {
+    if (typeof this.props.value === "undefined") {
       this.props.onChange(this.getDefaultValue())
     }
   }
