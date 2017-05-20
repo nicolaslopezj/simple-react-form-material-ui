@@ -28,17 +28,27 @@ const defaultProps = {
 export default class SelectComponent extends React.Component {
   constructor(props) {
     super(props)
-    this._options = this._getOptions()
+    this._setMenuItems(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.options && !_.isEqual(this.props.options, nextProps.options)) {
+      this._setMenuItems(nextProps);
+    }
+  }
+
+  _setMenuItems(props) {
+    this._options = this._getOptions(props)
     this._menuItems = this._options.map((item) => {
       return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value)=>props.onChange(item.value)}/>
     })
   }
 
-  _getOptions () {
-    if (this.props.options) {
-      return this.props.options
-    } else if (this.props.fieldSchema.allowedValues) {
-      return _.map(this.props.fieldSchema.allowedValues, function (allowedValue) {
+  _getOptions(props) {
+    if (props.options) {
+      return props.options
+    } else if (props.fieldSchema.allowedValues) {
+      return _.map(props.fieldSchema.allowedValues, function (allowedValue) {
         return {
           label: allowedValue,
           value: allowedValue
@@ -48,7 +58,8 @@ export default class SelectComponent extends React.Component {
       throw new Error('You must set the options for the select field')
     }
   }
-  _getDefaultValue () {
+
+  _getDefaultValue() {
     if (this.props.defaultValue) {
       return this.props.defaultValue
     } else if (this.props.fieldSchema && this.props.fieldSchema.defaultValue) {
@@ -57,13 +68,12 @@ export default class SelectComponent extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.value) {
+    if (typeof this.props.value === "undefined") {
       this.props.onChange(this._getDefaultValue())
     }
   }
 
-  render () {
-
+  render() {
     return (
         <SelectField
             value={String(this.props.value)}
