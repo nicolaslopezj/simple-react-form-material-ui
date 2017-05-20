@@ -28,26 +28,26 @@ const defaultProps = {
 export default class SelectComponent extends React.Component {
   constructor(props) {
     super(props)
-    this._setMenuItems(props);
+    this.setMenuItems(props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.options && !_.isEqual(this.props.options, nextProps.options)) {
-      this._setMenuItems(nextProps);
+      this.setMenuItems(nextProps);
     }
   }
 
-  _setMenuItems(props) {
-    this._options = this._getOptions(props)
+  setMenuItems(props) {
+    this._options = this.getOptions(props)
     this._menuItems = this._options.map((item) => {
       return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value)=>props.onChange(item.value)}/>
     })
   }
 
-  _getOptions(props) {
+  getOptions(props) {
     if (props.options) {
       return props.options
-    } else if (props.fieldSchema.allowedValues) {
+    } else if (props.fieldSchema && props.fieldSchema.allowedValues) {
       return _.map(props.fieldSchema.allowedValues, function (allowedValue) {
         return {
           label: allowedValue,
@@ -59,7 +59,7 @@ export default class SelectComponent extends React.Component {
     }
   }
 
-  _getDefaultValue() {
+  getDefaultValue () {
     if (this.props.defaultValue) {
       return this.props.defaultValue
     } else if (this.props.fieldSchema && this.props.fieldSchema.defaultValue) {
@@ -69,22 +69,24 @@ export default class SelectComponent extends React.Component {
 
   componentDidMount() {
     if (typeof this.props.value === "undefined") {
-      this.props.onChange(this._getDefaultValue())
+      this.props.onChange(this.getDefaultValue())
     }
   }
 
   render() {
     return (
-        <SelectField
-            value={String(this.props.value)}
-            defaultValue={this._getDefaultValue()}
-            fullWidth
-            disabled={this.props.disabled}
-            floatingLabelText={this.props.label}
-            errorText={this.props.errorMessage}
-            {...this.props.passProps}>
-          {this._menuItems}
-        </SelectField>
+      <SelectField
+        value={String(this.props.value)}
+        defaultValue={this.getDefaultValue()}
+        fullWidth
+        disabled={this.props.disabled}
+        floatingLabelText={this.props.label}
+        errorText={this.props.errorMessage}
+        {...this.props.passProps}>
+        {this.getOptions().map((item) => (
+          <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value) => this.props.onChange(item.value)} />
+        ))}
+      </SelectField>
     )
   }
 }

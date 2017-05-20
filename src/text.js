@@ -4,12 +4,11 @@ import {FieldType, registerType} from 'simple-react-form'
 
 const propTypes = {
   ...FieldType.propTypes,
-  changeOnKeyDown: React.PropTypes.bool,
   fieldType: React.PropTypes.string
 }
 
 const defaultProps = {
-  changeOnKeyDown: false
+
 }
 
 export default class TextFieldComponent extends React.Component {
@@ -17,10 +16,6 @@ export default class TextFieldComponent extends React.Component {
   constructor (props) {
     super(props)
     this.state = { value: props.value }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.setState({ value: nextProps.value })
   }
 
   onKeyDown (event) {
@@ -33,9 +28,10 @@ export default class TextFieldComponent extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur()
     }
-    this.props.onChange(this.state.value)
+    this.props.onChange(event.target.value)
   }
-  _isNumberType () {
+
+  isNumberType () {
     if (this.props.fieldSchema) {
       return this.props.fieldSchema.type === Number
     }
@@ -48,12 +44,9 @@ export default class TextFieldComponent extends React.Component {
     return false
   }
 
-  onChange (event) {
-    let value = (this._isNumberType()) ? Number(event.target.value) : event.target.value
-    this.setState({ value })
-    if (this.props.changeOnKeyDown) {
-      this.props.onChange(value)
-    }
+  onChange (event, other) {
+    const value = this.isNumberType() ? Number(event.target.value) : event.target.value
+    this.props.onChange(value)
   }
 
   render () {
@@ -62,7 +55,7 @@ export default class TextFieldComponent extends React.Component {
       <TextField
         ref='input'
         fullWidth
-        value={this.state.value || ''}
+        value={typeof this.props.value !== 'undefined' ? this.props.value : ''}
         type={fieldType}
         floatingLabelText={this.props.useHint ? null : this.props.label}
         hintText={this.props.useHint ? this.props.label : null}

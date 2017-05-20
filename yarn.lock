@@ -1313,6 +1313,10 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+colors@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
+
 combine-source-map@~0.7.1:
   version "0.7.2"
   resolved "https://registry.npmjs.org/combine-source-map/-/combine-source-map-0.7.2.tgz#0870312856b307a87cc4ac486f3a9a62aeccc09e"
@@ -4140,9 +4144,9 @@ simple-html-index@^1.4.0:
   dependencies:
     from2-string "^1.1.0"
 
-simple-react-form@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.npmjs.org/simple-react-form/-/simple-react-form-1.8.0.tgz#df6fed9b597cb6d885fc5b39384a4fc6c8cd422c"
+simple-react-form@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.npmjs.org/simple-react-form/-/simple-react-form-1.9.1.tgz#4e6cd04ebcc37ad0d721e1c6847b9d52a1de17ef"
   dependencies:
     dot-object "^1.5.1"
     lodash "^4.17.2"
