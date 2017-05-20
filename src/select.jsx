@@ -26,12 +26,29 @@ const defaultProps = {
 }
 
 export default class SelectComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.setMenuItems(props);
+  }
 
-  getOptions () {
-    if (this.props.options) {
-      return this.props.options
-    } else if (this.props.fieldSchema && this.props.fieldSchema.allowedValues) {
-      return _.map(this.props.fieldSchema.allowedValues, function (allowedValue) {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.options && !_.isEqual(this.props.options, nextProps.options)) {
+      this.setMenuItems(nextProps);
+    }
+  }
+
+  setMenuItems(props) {
+    this._options = this.getOptions(props)
+    this._menuItems = this._options.map((item) => {
+      return <MenuItem key={item.value} value={String(item.value)} primaryText={item.label} onTouchTap={(value)=>props.onChange(item.value)}/>
+    })
+  }
+
+  getOptions(props) {
+    if (props.options) {
+      return props.options
+    } else if (props.fieldSchema && props.fieldSchema.allowedValues) {
+      return _.map(props.fieldSchema.allowedValues, function (allowedValue) {
         return {
           label: allowedValue,
           value: allowedValue
@@ -50,13 +67,13 @@ export default class SelectComponent extends React.Component {
     }
   }
 
-  componentDidMount () {
-    if (!this.props.value) {
+  componentDidMount() {
+    if (typeof this.props.value === "undefined") {
       this.props.onChange(this.getDefaultValue())
     }
   }
 
-  render () {
+  render() {
     return (
       <SelectField
         value={String(this.props.value)}
