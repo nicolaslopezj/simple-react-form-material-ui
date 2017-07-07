@@ -70,7 +70,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-  accept: false,
+  accept: '',
   image: false,
   multi: false,
   previewStyles: {},
